@@ -3,6 +3,8 @@ I re-implement YOLOV7 (CVPR 2023) in a simplified version based on my coding sty
 This repository aims to reproduce the YOLOV7 performance on the MS COCO dataset (69.7% AP<sub>50</sub>) and only contains part of the content.
 ## Create issues from this repository
 Since this account is seldom used, please send an email to wangren@snu.ac.kr.
+## Update
+- *2023.05.03* Modify the code structure.
 ## Environment
 Ubuntu 20.04.3 LTS  
 Python 3.8.10  
@@ -55,9 +57,9 @@ Step 8: Check the structure of data files
 ## Quick Test
 Step 1: Download the pretrained weight [YOLOV7_COCO.pt](https://drive.google.com/file/d/1IQmu_GTC9tdVsnNj2aRr3h1W8vo7WeLI/view?usp=sharing)  
 Step 2: Place the weight file in this repository  
-Step 3: Performance evaluation (image size is 640)
+Step 3: Performance evaluation (Default arguments: image size is 640, batch size is 1, num_workers is 4)
 ```
-python3 test.py
+python3 test_coco.py
 ```
 Step 4: Check the results
 ```
