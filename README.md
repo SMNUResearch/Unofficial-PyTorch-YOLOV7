@@ -4,6 +4,7 @@ This repository aims to reproduce the YOLOV7 performance on the MS COCO dataset 
 ## Create issues from this repository
 Since this account is seldom used, please send an email to wangren@snu.ac.kr.
 ## Update
+- *2023.05.27* Add the evaluation code.
 - *2023.05.03* Modify the code structure.
 ## Environment
 Ubuntu 20.04.3 LTS  
@@ -59,7 +60,7 @@ Step 1: Download the pretrained weight [YOLOV7_COCO.pt](https://drive.google.com
 Step 2: Place the weight file in this repository  
 Step 3: Performance evaluation (Default arguments: image size is 640, batch size is 1, num_workers is 4)
 ```
-python3 test_coco.py
+python3 test_coco.py -USE_COCOAPI
 ```
 Step 4: Check the results
 ```
@@ -75,6 +76,10 @@ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.687
 Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.536
 Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.734
 Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.831
+```
+Step 5: Performance evaluation without using COCOAPI
+```
+python3 test_coco.py -AREA_MIN=0 -AREA_MAX=1e10 -MAX_DETECTIONS_CLASS=100 -MERGE_TYPE=COCO
 ```
 ## Training (single-machine)
 Multi-GPU [[Training log]](https://drive.google.com/file/d/1vt3JsFbkHKaAavbQPKOVzd5UQdj-3B6x/view?usp=sharing)
